@@ -69,5 +69,72 @@ You can set this property using, menu.setAxis("y") for vertical or menu.setAxis(
 	}
 
 
+Sample:
+
+index.js
+
+	window.addEventListener('DOMContentLoaded', startup());
+
+	function startup(){
+
+		const menubar = new Menubar();
+		menubar.setBackground("#f5f5f5");
+		
+		const fileMenu = new Menu("File");
+		menubar.addMenu(fileMenu);
+
+		const newMenuItem = new MenuItem("New Window");
+		newMenuItem.setOnClickListener(click_handler_newWindowMI);
+		fileMenu.addMenuItem(newMenuItem);
+
+		const viewMenu = new Menu("View");
+		menubar.addMenu(viewMenu);
+
+		const toolsMenuItem = new MenuItem("Tools");
+		viewMenu.addMenuItem(toolsMenuItem);
+
+		const settingsMenu = new Menu("Settings");
+		settingsMenu.setAxis("x");
+		viewMenu.addMenu(settingsMenu);
+
+		const settingPreferences = new MenuItem("Preferences");
+		settingsMenu.addMenuItem(settingPreferences);
+
+		const editSett = new MenuItem("Editor Settings");
+		editSett.setOnClickListener(edit_click);
+		settingsMenu.addMenuItem(editSett);
+
+		document.getElementById('menu-container-section').appendChild(menubar.getObject());
+	}
+
+	function edit_click(){
+		alert("Editor Settings MenuItem clicked");
+	}
+
+	function click_handler_newWindowMI(){
+		alert("New Window MenuItem Clicked");
+	}
+
+
+
+
+
+index.html
+
+	<!DOCTYPE html>
+	<html>
+    	<head>
+        	<title>Test Menubar</title>
+        	<link rel="stylesheet" href="../project/styles/Menubar.css"/>
+        	<script src="../project/scripts/Menubar.js"></script>
+	</head>
+	<body>
+		<div id="menu-container-section">
+		</div>
+		<script src="index.js"></script>
+	</body>
+	</html>
+
+
 Thank you!
 
