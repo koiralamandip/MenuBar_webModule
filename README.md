@@ -2,33 +2,41 @@ Menubar_webAPI-v1.1
 -------------------------------------------
 1. Create index.html for your project
 
-2. Paste the following lines inside the <head> ... </head> section of your page
+2. Paste the following lines inside the &lt;head&gt; ... &lt;/head&gt; section of your page
 
-	<link rel="stylesheet" href="<path to API folder>/styles/Menubar.css"/>
-	<script src="<path to API folder>/scripts/Menubar.js"></script>
+&lt;link rel="stylesheet" href="&lt;path to API folder&gt;/styles/Menubar.css"/&gt;
+&lt;script src="&lt;path to API folder&gt;/scripts/Menubar.js"&gt; &lt;/script&gt;
 
-** Change <path to API folder> accordingly
+** Change &lt;path to API folder&gt; accordingly
 
 3. Create another index.js file and link to index.html like above
 
 3. Inside index.js, create an object of Menubar
-
-	const menubar = new Menubar();
+	
+	{
+		const menubar = new Menubar();
+	}
 
 4. Create an object of Menu and add it to menubar
 
-	const fileMenu = new Menu("File");
-	menubar.addMenu(fileMenu);
+	{
+		const fileMenu = new Menu("File");
+		menubar.addMenu(fileMenu);
+	}
 
 5. Add MenuItem inside fileMenu
 
-	const newWindowMI = new MenuItem("New Window");
-	fileMenu.addMenuItem(newWindowMI);
+	{
+		const newWindowMI = new MenuItem("New Window");
+		fileMenu.addMenuItem(newWindowMI);
+	}
 
 6. Create another Menu in menubar
 
-	const viewMenu = new Menu("View");
-	menubar.addMenu(viewMenu);
+	{
+		const viewMenu = new Menu("View");
+		menubar.addMenu(viewMenu);
+	}
 
 --------Note: You can add MenuItem as well as another Menu inside a Menu.
 
@@ -39,19 +47,27 @@ You can set this property using, menu.setAxis("y") for vertical or menu.setAxis(
 
 7. Create a Menu to add inside View Menu
 
-	const settings = new Menu("Settings");
-	settings.setAxis("x");
-	viewMenu.addMenu(settings);
+	{
+		const settings = new Menu("Settings");
+		settings.setAxis("x");
+		viewMenu.addMenu(settings);
+	}
 
 8. on-click handler for MenuItem (Only MenuItem accepts on-click handler of this Extension project).
 
-	newWindowMI.setOnClickListener(click_handler_newWindowMI);
+	{
+		newWindowMI.setOnClickListener(click_handler_newWindowMI);
+	}
 
 9. Create the above click_handler_newWindowMI function which gets called on click of the menu item.
 
-	function click_handler_newWindowMI(){
-		alert("New Window MenuItemClicked");
+	{
+
+		function click_handler_newWindowMI(){
+			alert("New Window MenuItemClicked");
+		}
 	}
+
 
 Thank you!
 
